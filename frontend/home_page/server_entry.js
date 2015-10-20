@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import { DefaultLayout } from '../base/layouts';
+import { makeServerEntry } from '../base/utils';
 
-export default class HomePage extends Component {
+class HomePage extends Component {
   render() {
     return (
       <DefaultLayout title='My Impact Pledge' name='home_page'>
@@ -10,3 +11,5 @@ export default class HomePage extends Component {
     );
   }
 }
+
+export default makeServerEntry(HomePage);

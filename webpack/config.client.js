@@ -3,7 +3,8 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { NODE_ENV } from '../server/config';
 import path from 'path';
-import webpack from 'webpack';
+import { DefinePlugin, ProvidePlugin } from 'webpack';
+import * as clientConfig from '../client/config';
 
 module.exports = {
   entry: {
@@ -64,6 +65,7 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('[name].client.css', { allChunks: true }),
-    new webpack.ProvidePlugin({ React: 'react' }),
+    new ProvidePlugin({ React: 'react' }),
+    new DefinePlugin({ _CLIENT_CONFIG: JSON.stringify(clientConfig) }),
   ],
 };
