@@ -1,0 +1,38 @@
+{
+  "name": "photo-timeline",
+  "version": "0.0.1",
+  "description": "A timeline of photos",
+  "main": "server/entry.js",
+  "scripts": {
+    "start": "node server/entry.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/golmansax/photo-timeline.git"
+  },
+  "author": "Holman Gao <holman@golmansax.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/golmansax/photo-timeline/issues"
+  },
+  "homepage": "https://github.com/golmansax/photo-timeline",
+  "devDependencies": {
+    "http-proxy": "*",
+    "webpack-dev-server": "*"
+  },
+  "dependencies": {
+    "babel": "*",
+    "babel-loader": "*",
+    "babel-plugin-object-assign": "*",
+    "css-loader": "*",
+    "dotenv": "*",
+    "express": "*",
+    "extract-text-webpack-plugin": "*",
+    "file-loader": "*",
+    "react": "*",
+    "react-dom": "*",
+    "style-loader": "*",
+    "url-loader": "*",
+    "webpack": "*"
+  }
+}
