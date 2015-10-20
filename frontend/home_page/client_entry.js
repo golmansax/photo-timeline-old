@@ -1,2 +1,3 @@
 import { render } from 'react-dom';
-render(<div>Hello World!</div>, document.getElementById('content'));
+import { HomePageContent } from './components';
+render(<HomePageContent />, document.getElementById('content'));

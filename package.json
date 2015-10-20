@@ -18,6 +18,7 @@
   "homepage": "https://github.com/golmansax/photo-timeline",
   "devDependencies": {
     "http-proxy": "*",
+    "travis-lint": "*",
     "webpack-dev-server": "*"
   },
   "dependencies": {

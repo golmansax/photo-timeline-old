@@ -1,2 +1,2 @@
-import HomePage from './home_page';
-export { HomePage };
+import HomePageContent from './content';
+export { HomePageContent };
