@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import { NODE_ENV } from '../server/config';
+import { isProduction } from '../server/config';
 import path from 'path';
 import { DefinePlugin, ProvidePlugin } from 'webpack';
 import * as clientConfig from '../client/config';
@@ -60,7 +60,7 @@ module.exports = {
       },
     ],
 
-    postLoaders: NODE_ENV === 'production' ? [{ loader: 'transform?envify' }] : undefined,
+    postLoaders: isProduction() ? [{ loader: 'transform?envify' }] : undefined,
   },
 
   plugins: [
