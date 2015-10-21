@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/golmansax/photo-timeline",
   "devDependencies": {
+    "babel-eslint": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-config-golmansax": "*",
+    "eslint-plugin-react": "*",
     "http-proxy": "*",
     "travis-lint": "*",
     "webpack-dev-server": "*"

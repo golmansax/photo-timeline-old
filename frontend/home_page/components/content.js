@@ -19,7 +19,6 @@ export default class HomePageContent extends Component {
 
   render() {
     if (this.state.events === null) { return <div>Loading...</div>; }
-    console.log(this.state.events);
 
     return (
       <div>

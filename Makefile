@@ -1,4 +1,7 @@
-.PHONY: watch start-dev start-prod
+.PHONY: eslint watch start-dev start-prod
+
+eslint:
+	./node_modules/.bin/eslint .
 
 start-dev:
 	nodemon server/entry.js --watch server

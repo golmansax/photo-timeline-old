@@ -21,6 +21,6 @@ export default class EventList extends Component {
   }
 }
 
-EventList.PropTypes = {
+EventList.propTypes = {
   events: PropTypes.array.isRequired,
 };

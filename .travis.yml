@@ -5,6 +5,7 @@ install:
 - npm prune
 script:
 - travis-lint .travis.yml
+- make eslint
 cache:
   directories:
   - node_modules
