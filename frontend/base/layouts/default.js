@@ -12,6 +12,11 @@ export default class DefaultLayout extends Component {
             rel='stylesheet'
             href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css'
           />
+          <link
+            type='text/css'
+            rel='stylesheet'
+            href={`/assets/${this.props.name}.client.css`}
+          />
           <meta name='viewport' content='width=device-width, user-scalable=no' />
           <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
         </head>

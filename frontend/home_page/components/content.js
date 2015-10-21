@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { bindToState } from 'client/re_base';
-import { EventList } from '../../events/components';
+import { EventGrid } from '../../events/components';
 
 export default class HomePageContent extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ export default class HomePageContent extends Component {
 
     return (
       <div>
-        <EventList events={this.state.events} />
+        <EventGrid events={this.state.events} />
       </div>
     );
   }

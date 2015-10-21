@@ -1,2 +1,3 @@
 import EventList from './list';
-export default { EventList };
+import EventGrid from './grid';
+export default { EventList, EventGrid };

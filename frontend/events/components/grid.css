@@ -1,0 +1,11 @@
+.grid {
+  clear: fix;
+}
+
+.gridItem {
+  lost-column: 1/3;
+}
+
+.image {
+  width: 100%;
+}

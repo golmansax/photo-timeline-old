@@ -3,6 +3,8 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { isProduction } from '../server/config';
 import path from 'path';
+import lost from 'lost';
+import postcssClearfix from 'postcss-clearfix';
 import { DefinePlugin, ProvidePlugin } from 'webpack';
 import * as clientConfigFromServer from '../client/config.from_server';
 
@@ -30,10 +32,10 @@ module.exports = {
         },
       },
       {
-        test: /\.styl/,
+        test: /\.css/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css-loader?modules&localIdentName=[path][name]__[local]___[hash:base64:5]'
+          'css-loader?modules&localIdentName=[path][name]__[local]___[hash:base64:5]!postcss-loader'
         ),
       },
       {
@@ -76,4 +78,6 @@ module.exports = {
       client: path.resolve(__dirname, '..', 'client'),
     },
   },
+
+  postcss: () => [lost, postcssClearfix],
 };
