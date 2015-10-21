@@ -8,6 +8,7 @@ import * as clientConfig from '../client/config';
 
 module.exports = {
   entry: {
+    admin_page: './frontend/admin_page/client_entry.js',
     home_page: './frontend/home_page/client_entry.js',
   },
 
