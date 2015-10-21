@@ -1,5 +1,4 @@
-/* eslint-disable max-len, no-process-env */
+// NOTE: this constant is created through webpack.DefinePlugin
+// It is an exact copy of [root]/client/config.from_server
 
-// NOTE: don't include this file in any file from frontend/
-export { NODE_ENV } from '../server/config';
-export const FIREBASE_URL = `https://${process.env.FIREBASE_APP}.firebaseio.com`;
+export default _CLIENT_CONFIG_FROM_SERVER; // eslint-disable-line no-undef

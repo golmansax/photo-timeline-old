@@ -4,7 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { isProduction } from '../server/config';
 import path from 'path';
 import { DefinePlugin, ProvidePlugin } from 'webpack';
-import * as clientConfig from '../client/config';
+import * as clientConfigFromServer from '../client/config.from_server';
 
 module.exports = {
   entry: {
@@ -68,6 +68,12 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('[name].client.css', { allChunks: true }),
     new ProvidePlugin({ React: 'react' }),
-    new DefinePlugin({ _CLIENT_CONFIG: JSON.stringify(clientConfig) }),
+    new DefinePlugin({ _CLIENT_CONFIG_FROM_SERVER: JSON.stringify(clientConfigFromServer) }),
   ],
+
+  resolve: {
+    alias: {
+      client: path.resolve(__dirname, '..', 'client'),
+    },
+  },
 };

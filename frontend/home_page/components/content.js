@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { bindToState } from '../../re_base';
+import { bindToState } from 'client/re_base';
 import { EventList } from '../../events/components';
 
 export default class HomePageContent extends Component {
