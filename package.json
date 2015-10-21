@@ -30,6 +30,7 @@
     "express": "*",
     "extract-text-webpack-plugin": "*",
     "file-loader": "*",
+    "moment": "*",
     "react": "*",
     "react-dom": "*",
     "re-base": "*",
