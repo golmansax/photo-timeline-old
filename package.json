@@ -32,6 +32,7 @@
     "file-loader": "*",
     "react": "*",
     "react-dom": "*",
+    "re-base": "*",
     "style-loader": "*",
     "url-loader": "*",
     "webpack": "*"

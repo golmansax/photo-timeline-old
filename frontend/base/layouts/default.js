@@ -17,7 +17,6 @@ export default class DefaultLayout extends Component {
         </head>
         <body>
           {this.props.children}
-          <script src='https://cdn.firebase.com/js/client/2.3.1/firebase.js' />
           <script src={`/assets/${this.props.name}.client_entry.js`} />
         </body>
       </html>

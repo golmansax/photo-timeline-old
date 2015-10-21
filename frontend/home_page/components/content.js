@@ -1,11 +1,29 @@
 import { Component } from 'react';
-import { FIREBASE_APP } from '../../config';
+import { bindToState } from '../../re_base';
+import { EventList } from '../../events/components';
 
 export default class HomePageContent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { events: null };
+  }
+
+  componentWillMount() {
+    bindToState('events', {
+      context: this,
+      state: 'events',
+      asArray: true,
+      queries: { orderByChild: 'date' },
+    });
+  }
+
   render() {
+    if (this.state.events === null) { return <div>Loading...</div>; }
+    console.log(this.state.events);
+
     return (
       <div>
-        Hello World!
+        <EventList events={this.state.events} />
       </div>
     );
   }
