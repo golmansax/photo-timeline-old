@@ -1,2 +1,6 @@
 import AdminPageContent from './content';
-export { AdminPageContent };
+import AdminLogin from './login';
+import AdminEventForm from './event_form';
+import AdminEventList from './event_list';
+
+export { AdminPageContent, AdminLogin, AdminEventList, AdminEventForm };

@@ -6,7 +6,7 @@ import path from 'path';
 import lost from 'lost';
 import postcssClearfix from 'postcss-clearfix';
 import { DefinePlugin, ProvidePlugin } from 'webpack';
-import * as clientConfigFromServer from '../client/config.from_server';
+import * as clientConfigFromServer from '../frontend/client/config.from_server';
 
 module.exports = {
   entry: {
@@ -74,9 +74,7 @@ module.exports = {
   ],
 
   resolve: {
-    alias: {
-      client: path.resolve(__dirname, '..', 'client'),
-    },
+    root: path.resolve(__dirname, '..', 'frontend'),
   },
 
   postcss: () => [lost, postcssClearfix],

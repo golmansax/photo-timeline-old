@@ -26,7 +26,7 @@ server.get('/', (req, res) => {
   res.send(`<!DOCTYPE html>${page}`);
 });
 
-server.get('/admin', (req, res) => {
+server.get('/admin*', (req, res) => {
   const page = renderToStaticMarkup(<AdminPage />);
   res.send(`<!DOCTYPE html>${page}`);
 });

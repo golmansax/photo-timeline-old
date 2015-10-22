@@ -15,6 +15,7 @@ export default class EventList extends Component {
   _renderEvent(event) {
     return (
       <div className={styles.gridItem} key={event.key}>
+        <div>{event.title}</div>
         <div>{moment(event.date).format('MMMM Do YYYY')}</div>
         <EventImage {...{event}} className={styles.image} />
       </div>

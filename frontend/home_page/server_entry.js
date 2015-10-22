@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import { DefaultLayout } from '../base/layouts';
-import { makeServerEntry } from '../base/utils';
+import { DefaultLayout } from 'core/layouts';
+import { makeServerEntry } from 'core/utils';
 
 class HomePage extends Component {
   render() {

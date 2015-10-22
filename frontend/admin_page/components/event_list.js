@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import { bindToState, removeBinding } from 'client/re_base';
-import { EventGrid } from 'events/components';
+import { EventList } from 'events/components';
 
-export default class HomePageContent extends Component {
+export default class AdminEventList extends Component {
   constructor(props) {
     super(props);
     this.state = { events: null };
@@ -23,11 +23,6 @@ export default class HomePageContent extends Component {
 
   render() {
     if (this.state.events === null) { return <div>Loading...</div>; }
-
-    return (
-      <div>
-        <EventGrid events={this.state.events} />
-      </div>
-    );
+    return <EventList events={this.state.events} />;
   }
 }

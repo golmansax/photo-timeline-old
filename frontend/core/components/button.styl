@@ -1,0 +1,22 @@
+@require _colors
+
+.rootElement {
+  border .1em transparent solid
+  border-radius .5em
+  cursor pointer
+  display inline-block
+  padding .75em 1em
+  text-align center
+  transition background-color 300ms ease-out
+  user-select none
+}
+
+.main {
+  composes rootElement
+  background-color $purple
+  color $white
+
+  &:hover {
+    background-color $darkPurple
+  }
+}

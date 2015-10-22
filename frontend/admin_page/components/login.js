@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import ref from 'client/firebase_ref';
+import { authWithPassword } from 'client/firebase_ref';
 
 export default class AdminLogin extends Component {
   constructor(props) {
@@ -47,7 +47,7 @@ export default class AdminLogin extends Component {
       return;
     }
 
-    ref.authWithPassword({
+    authWithPassword({
       email: this.state.email,
       password: this.state.password,
     }, (error) => {
