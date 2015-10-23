@@ -1,6 +1,7 @@
 import { Component } from 'react';
-import { bindToState, removeBinding } from 'client/re_base';
-import { EventList } from 'events/components';
+import { bindToState, removeBinding } from '_client/re_base';
+import { A } from '_frontend/components';
+import { EventList } from '../../events/components';
 
 export default class AdminEventList extends Component {
   constructor(props) {
@@ -23,6 +24,11 @@ export default class AdminEventList extends Component {
 
   render() {
     if (this.state.events === null) { return <div>Loading...</div>; }
-    return <EventList events={this.state.events} />;
+    return (
+      <div>
+        <EventList events={this.state.events} />
+        <A route='/create-event'>Blah</A>
+      </div>
+    );
   }
 }

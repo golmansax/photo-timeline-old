@@ -27,6 +27,7 @@
     "webpack-dev-server": "*"
   },
   "dependencies": {
+    "app-module-path": "*",
     "babel": "*",
     "babel-loader": "*",
     "babel-plugin-object-assign": "*",

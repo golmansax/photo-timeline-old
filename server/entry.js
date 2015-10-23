@@ -1,4 +1,4 @@
-require('babel/register');
+require('../lib/setup');
 
 // Hack to make JSX not need React
 global.React = require('react');

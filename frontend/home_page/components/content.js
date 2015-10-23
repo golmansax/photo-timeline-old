@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import { bindToState, removeBinding } from 'client/re_base';
-import { EventGrid } from 'events/components';
+import { bindToState, removeBinding } from '_client/re_base';
+import { EventGrid } from '../../events/components';
 
 export default class HomePageContent extends Component {
   constructor(props) {

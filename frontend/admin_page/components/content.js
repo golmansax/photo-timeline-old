@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { logOut } from 'client/firebase_ref';
+import { logOut } from '_client/firebase_ref';
 
 export default class AdminPageContent extends Component {
   render() {

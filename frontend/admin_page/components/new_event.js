@@ -1,16 +1,15 @@
 import { Component } from 'react';
-import { A } from 'core/components';
-import { syncState, removeBinding } from 'client/re_base';
-import { EventForm } from 'events/components';
+import { A } from '_frontend/components';
+import { bindAll } from '_utils';
+import { syncState, removeBinding } from '_client/re_base';
+import { EventForm } from '../../events/components';
 
-export default class AdminEventList extends Component {
+export default class AdminEditEvent extends Component {
   constructor(props) {
     super(props);
     this.state = { event: null };
 
-    [
-      '_renderForm', '_updateEvent'
-    ].forEach((key) => this[key] = this[key].bind(this));
+    bindAll(this, ['_renderForm', '_updateEvent']);
   }
 
   componentWillMount() {

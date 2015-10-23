@@ -3,16 +3,16 @@ import {
   AdminPageContent,
   AdminLogin,
   AdminEventList,
-  AdminEventForm,
+  AdminEditEvent,
 } from './components';
 import { Router, IndexRoute, Route, Link } from 'react-router';
-import { isLoggedIn } from 'client/firebase_ref';
+import { isLoggedIn } from '_client/firebase_ref';
 
 const loggedInRoutes = (
   <Router>
     <Route path='/' component={AdminPageContent}>
       <IndexRoute component={AdminEventList} />
-      <Route path='events/:id' component={AdminEventForm} />
+      <Route path='events/:id' component={AdminEditEvent} />
     </Route>
   </Router>
 );

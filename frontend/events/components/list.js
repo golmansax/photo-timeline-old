@@ -1,6 +1,6 @@
 import { Component, PropTypes } from 'react';
 import moment from 'moment';
-import { A } from 'core/components';
+import { A } from '_frontend/components';
 import EventImage from './image';
 
 export default class EventList extends Component {
