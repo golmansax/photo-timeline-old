@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { logOut } from '_client/firebase_ref';
+import { children } from '_frontend/prop_types';
 
 export default class AdminPageContent extends Component {
   render() {
@@ -18,3 +19,5 @@ export default class AdminPageContent extends Component {
     window.location.reload();
   }
 }
+
+AdminPageContent.propTypes = { children: children.isRequired };

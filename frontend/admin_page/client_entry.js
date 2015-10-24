@@ -6,7 +6,7 @@ import {
   AdminEditEvent,
   AdminNewEvent,
 } from './components';
-import { Router, IndexRoute, Route, Link } from 'react-router';
+import { Router, IndexRoute, Route } from 'react-router';
 import { isLoggedIn } from '_client/firebase_ref';
 
 const loggedInRoutes = (

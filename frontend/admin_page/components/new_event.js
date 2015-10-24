@@ -30,9 +30,8 @@ export default class AdminNewEvent extends Component {
       data,
       then: () => {
         alert('Successfully added event!');
-        console.log(this.history);
         this.history.pushState(null, `/events/${data.slug}`);
-      }
+      },
     });
   }
 }

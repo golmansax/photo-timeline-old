@@ -1,7 +1,5 @@
 import { Component, PropTypes } from 'react';
-import moment from 'moment';
 import { pick } from '_utils';
-import styles from './grid.css';
 import { makeEventSlug } from '../utils';
 
 export default class EventForm extends Component {
@@ -65,4 +63,5 @@ export default class EventForm extends Component {
 
 EventForm.propTypes = {
   event: PropTypes.object.isRequired,
+  onEdit: PropTypes.func,
 };

@@ -1,9 +1,15 @@
 import { Component, PropTypes } from 'react';
 import moment from 'moment';
+import { bindAll } from '_utils';
 import { A } from '_frontend/components';
-import EventImage from './image';
+import { childRef } from '_client/firebase_ref';
 
 export default class EventList extends Component {
+  constructor(props) {
+    super(props);
+    bindAll(this, ['_renderEvent']);
+  }
+
   render() {
     return (
       <div>
@@ -15,10 +21,17 @@ export default class EventList extends Component {
   _renderEvent(event) {
     return (
       <div key={event.key}>
-        <div>Title – {moment(event.date).format('MMMM Do YYYY')}</div>
+        <div>{event.title} – {moment(event.date).format('MMMM Do YYYY')}</div>
         <A route={`/events/${event.key}`}>[edit]</A>
+        <A onClick={this._removeEvent.bind(this, event)}>[remove]</A>
       </div>
     );
+  }
+
+  _removeEvent(event) {
+    childRef(`events/${event.key}`).remove(() => {
+      alert('Successfully removed!');
+    });
   }
 }
 

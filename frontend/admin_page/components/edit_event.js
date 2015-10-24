@@ -1,6 +1,7 @@
-import { Component } from 'react';
+import { Component, PropTypes } from 'react';
 import { A } from '_frontend/components';
 import { syncState, removeBinding } from '_client/re_base';
+import { bindAll } from '_utils';
 import { EventForm } from '../../events/components';
 
 export default class AdminEditEvent extends Component {
@@ -8,9 +9,7 @@ export default class AdminEditEvent extends Component {
     super(props);
     this.state = { event: null };
 
-    [
-      '_renderForm', '_updateEvent'
-    ].forEach((key) => this[key] = this[key].bind(this));
+    bindAll(this, ['_renderForm', '_updateEvent']);
   }
 
   componentWillMount() {
@@ -44,3 +43,9 @@ export default class AdminEditEvent extends Component {
     alert('Successfully edited event!');
   }
 }
+
+AdminEditEvent.propTypes = {
+  params: PropTypes.shape({
+    id: PropTypes.string,
+  }),
+};

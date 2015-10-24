@@ -1,6 +1,8 @@
 import express from 'express';
 import path from 'path';
+import bodyParser from 'body-parser';
 import { renderToStaticMarkup } from 'react-dom/server';
+import { uploadImage } from './cloudinary';
 import { isDevelopment } from './config';
 import AdminPage from '../frontend/admin_page/server_entry';
 import HomePage from '../frontend/home_page/server_entry';
@@ -20,15 +22,22 @@ if (isDevelopment()) {
     express.static(path.resolve(__dirname, '..', 'webpack', 'build'))
   );
 }
+server.use('static', express.static(path.resolve(__dirname, '..', 'public')));
 
 server.get('/', (req, res) => {
   const page = renderToStaticMarkup(<HomePage />);
   res.send(`<!DOCTYPE html>${page}`);
 });
 
+server.use(bodyParser.urlencoded({ extended: false }));
+
 server.get('/admin*', (req, res) => {
   const page = renderToStaticMarkup(<AdminPage />);
   res.send(`<!DOCTYPE html>${page}`);
+});
+
+server.post('/create-image', (req, res) => {
+  uploadImage(req.body.imagePath).then((data) => res.send({ data }));
 });
 
 server.use((err, req, res, next) => {
