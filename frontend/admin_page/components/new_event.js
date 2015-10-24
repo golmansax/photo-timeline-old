@@ -1,26 +1,15 @@
 import { Component } from 'react';
+import reactMixin from 'react-mixin';
+import { History } from 'react-router';
 import { A } from '_frontend/components';
 import { bindAll } from '_utils';
-import { syncState, removeBinding } from '_client/re_base';
+import { post } from '_client/re_base';
 import { EventForm } from '../../events/components';
 
-export default class AdminEditEvent extends Component {
+export default class AdminNewEvent extends Component {
   constructor(props) {
     super(props);
-    this.state = { event: null };
-
-    bindAll(this, ['_renderForm', '_updateEvent']);
-  }
-
-  componentWillMount() {
-    this._binding = syncState(`events/${this.props.params.id}`, {
-      context: this,
-      state: 'event',
-    });
-  }
-
-  componentWillUnmount() {
-    removeBinding(this._binding);
+    bindAll(this, ['_renderForm', '_createEvent']);
   }
 
   render() {
@@ -33,13 +22,19 @@ export default class AdminEditEvent extends Component {
   }
 
   _renderForm() {
-    if (this.state.event === null) { return <div>Loading...</div>; }
-    return <EventForm event={this.state.event} onEdit={this._updateEvent} />;
+    return <EventForm event={{}} onEdit={this._createEvent} />;
   }
 
-  _updateEvent(data) {
-    const newEvent = Object.assign({}, this.state.event, data);
-    this.setState({ event: newEvent });
-    alert('Successfully edited event!');
+  _createEvent(data) {
+    post(`events/${data.slug}`, {
+      data,
+      then: () => {
+        alert('Successfully added event!');
+        console.log(this.history);
+        this.history.pushState(null, `/events/${data.slug}`);
+      }
+    });
   }
 }
+
+reactMixin.onClass(AdminNewEvent, History);

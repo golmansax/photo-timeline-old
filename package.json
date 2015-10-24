@@ -44,6 +44,7 @@
     "postcss-loader": "*",
     "react": "*",
     "react-dom": "*",
+    "react-mixin": "*",
     "react-router": "1.0.0-rc3",
     "re-base": "*",
     "style-loader": "*",

@@ -27,7 +27,7 @@ export default class AdminEventList extends Component {
     return (
       <div>
         <EventList events={this.state.events} />
-        <A route='/create-event'>Blah</A>
+        <A route='/create-event'>Create event</A>
       </div>
     );
   }

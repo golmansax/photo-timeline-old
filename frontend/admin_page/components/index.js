@@ -9,4 +9,5 @@ export {
   AdminLogin,
   AdminEventList,
   AdminEditEvent,
+  AdminNewEvent,
 };
