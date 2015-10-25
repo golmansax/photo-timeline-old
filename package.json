@@ -40,9 +40,9 @@
     "extract-text-webpack-plugin": "*",
     "file-loader": "*",
     "firebase": "*",
+    "formidable": "*",
     "lost": "*",
     "moment": "*",
-    "multer": "*",
     "postcss-clearfix": "*",
     "postcss-loader": "*",
     "react": "*",
@@ -51,6 +51,7 @@
     "react-router": "1.0.0-rc3",
     "re-base": "*",
     "style-loader": "*",
+    "superagent": "*",
     "url-loader": "*",
     "webpack": "*"
   }

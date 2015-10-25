@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+import formidable from 'formidable';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { uploadImage } from './cloudinary';
 import { isDevelopment } from './config';
@@ -22,14 +23,14 @@ if (isDevelopment()) {
     express.static(path.resolve(__dirname, '..', 'webpack', 'build'))
   );
 }
+
 server.use('static', express.static(path.resolve(__dirname, '..', 'public')));
+server.use(bodyParser.urlencoded({ extended: false, limit: '4MB' }));
 
 server.get('/', (req, res) => {
   const page = renderToStaticMarkup(<HomePage />);
   res.send(`<!DOCTYPE html>${page}`);
 });
-
-server.use(bodyParser.urlencoded({ extended: false }));
 
 server.get('/admin*', (req, res) => {
   const page = renderToStaticMarkup(<AdminPage />);
@@ -37,7 +38,12 @@ server.get('/admin*', (req, res) => {
 });
 
 server.post('/create-image', (req, res) => {
-  uploadImage(req.body.imagePath).then((data) => res.send({ data }));
+  const form = new formidable.IncomingForm();
+  form.parse(req, (err, fields, files) => {
+    uploadImage(files.image.path).then((data) => {
+      res.send({ data });
+    });
+  });
 });
 
 server.use((err, req, res, next) => {
