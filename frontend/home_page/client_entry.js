@@ -5,7 +5,7 @@ import { isLoggedIn } from '_client/firebase_ref';
 
 const loggedInRoutes = (
   <HomePageContent />
-)
+);
 
 const loggedOutRoutes = (
   <UserLoginForm onLogin={() => window.location.reload()} />
