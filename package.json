@@ -37,6 +37,7 @@
     "cloudinary": "*",
     "css-loader": "*",
     "dotenv": "*",
+    "envify": "*",
     "express": "*",
     "extract-text-webpack-plugin": "*",
     "file-loader": "*",
@@ -53,6 +54,7 @@
     "re-base": "*",
     "style-loader": "*",
     "superagent": "*",
+    "transform-loader": "*",
     "url-loader": "*",
     "webpack": "*"
   }
