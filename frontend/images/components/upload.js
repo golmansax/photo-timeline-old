@@ -50,6 +50,6 @@ export default class ImageUpload extends Component {
 }
 
 ImageUpload.propTypes = {
-  onUpload: PropTypes.func,
   imageId: PropTypes.string.isRequired,
+  onUpload: PropTypes.func,
 };
