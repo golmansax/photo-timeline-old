@@ -1,22 +1,16 @@
 import { Component } from 'react';
-import { logOut } from '_client/firebase_ref';
 import { children } from '_frontend/prop_types';
+import { UserLogoutButton } from '../../users/components';
 
 export default class AdminPageContent extends Component {
   render() {
     return (
       <div>
         Logged in!
-        <button onClick={this._logOut}>Log out</button>
+        <UserLogoutButton />
         {this.props.children}
       </div>
     );
-  }
-
-  _logOut() {
-    logOut();
-    alert('Successfully logged out');
-    window.location.reload();
   }
 }
 

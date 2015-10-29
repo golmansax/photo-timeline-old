@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { bindToState, removeBinding } from '_client/re_base';
 import { EventGrid } from '../../events/components';
+import { UserLogoutButton } from '../../users/components';
 
 export default class HomePageContent extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ export default class HomePageContent extends Component {
 
     return (
       <div>
+        <UserLogoutButton />
         <EventGrid events={this.state.events} />
       </div>
     );

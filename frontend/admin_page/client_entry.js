@@ -1,11 +1,11 @@
 import { render } from 'react-dom';
 import {
   AdminPageContent,
-  AdminLogin,
   AdminEventList,
   AdminEditEvent,
   AdminNewEvent,
 } from './components';
+import { UserLoginForm } from '../users/components';
 import { Router, IndexRoute, Route } from 'react-router';
 import { isLoggedIn } from '_client/firebase_ref';
 
@@ -19,7 +19,9 @@ const loggedInRoutes = (
   </Router>
 );
 
-const loggedOutRoutes = <AdminLogin />;
+const loggedOutRoutes = (
+  <UserLoginForm onLogin={() => window.location.reload()} />
+);
 
 render(
   isLoggedIn() ? loggedInRoutes : loggedOutRoutes,
