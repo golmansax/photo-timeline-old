@@ -1,5 +1,8 @@
 .PHONY: eslint watch start-dev start-prod
 
+build:
+	./node_modules/.bin/webpack --progress --colors -p
+
 eslint:
 	./node_modules/.bin/eslint .
 

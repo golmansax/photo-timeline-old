@@ -4,7 +4,8 @@
   "description": "A timeline of photos",
   "main": "server/entry.js",
   "scripts": {
-    "start": "make start-dev"
+    "start": "make start-dev",
+    "postinstall": "./scripts/npm_postinstall.sh"
   },
   "repository": {
     "type": "git",
