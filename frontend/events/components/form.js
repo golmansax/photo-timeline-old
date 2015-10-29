@@ -3,11 +3,13 @@ import { bindAll, pick } from '_utils';
 import { makeEventSlug } from '../utils';
 import { ImageUpload } from '../../images/components';
 
+const EDITABLE_ATTRS = ['title', 'date', 'location', 'imageUrl'];
+
 export default class EventForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = pick(props.event, ['title', 'date']);
+    this.state = pick(props.event, EDITABLE_ATTRS);
     bindAll(this, ['_validateAndSubmit', '_updateImage']);
   }
 
@@ -37,12 +39,24 @@ export default class EventForm extends Component {
             />
           </div>
           <div>
+            <label>Location</label>
+            <input
+              type='text'
+              value={this.state.location}
+              onChange={this._updateState.bind(this, 'location')}
+            />
+          </div>
+          <div>
             <label>Image</label>
-            {this.props.event.imageUrl}
+            <input
+              type='text'
+              value={this.state.imageUrl}
+              onChange={this._updateState.bind(this, 'imageUrl')}
+            />
           </div>
           <input type='submit' value='Edit event' />
         </form>
-        <ImageUpload onUpload={this._updateImage} />
+        <ImageUpload onUpload={this._updateImage} imageId={this._getSlug()} />
       </div>
     );
   }
@@ -59,13 +73,13 @@ export default class EventForm extends Component {
     // Don't allow page navigation
     event.preventDefault();
 
-    this.props.onEdit(Object.assign(pick(this.state, ['date', 'title']), {
+    this.props.onEdit(Object.assign(pick(this.state, EDITABLE_ATTRS), {
       slug: this._getSlug(),
     }));
   }
 
   _getSlug() {
-    return makeEventSlug(pick(this.state, ['date', 'title']));
+    return makeEventSlug(pick(this.state, EDITABLE_ATTRS));
   }
 }
 

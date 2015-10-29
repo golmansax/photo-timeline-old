@@ -40,7 +40,7 @@ server.get('/admin*', (req, res) => {
 server.post('/create-image', (req, res) => {
   const form = new formidable.IncomingForm();
   form.parse(req, (err, fields, files) => {
-    uploadImage(files.image.path).then((data) => {
+    uploadImage(files.image.path, fields.imageId).then((data) => {
       res.send({ data });
     });
   });

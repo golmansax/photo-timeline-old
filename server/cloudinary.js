@@ -11,10 +11,14 @@ cloudinary.config({
   api_secret: CLOUDINARY_API_SECRET,
 });
 
-export function uploadImage(imagePath) {
+export function uploadImage(imagePath, imageId) {
   return new Promise((resolve) => {
+    const options = {
+      public_id: `photo-timeline/${imageId}`,
+    };
+
     cloudinary.uploader.upload(imagePath, (res) => {
       resolve(res);
-    });
+    }, options);
   });
 }

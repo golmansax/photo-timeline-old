@@ -30,6 +30,7 @@ export default class ImageUpload extends Component {
 
     const formData = new FormData();
     formData.append('image', this.state.file);
+    formData.append('imageId', this.props.imageId);
 
     post({ url: '/create-image', formData }).then(({ data }) => {
       this.props.onUpload(data.url);
@@ -50,4 +51,5 @@ export default class ImageUpload extends Component {
 
 ImageUpload.propTypes = {
   onUpload: PropTypes.func,
+  imageId: PropTypes.string.isRequired,
 };
