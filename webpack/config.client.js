@@ -69,7 +69,7 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('[name].client.css', { allChunks: true }),
-    new ProvidePlugin({ React: 'react' }),
+    new ProvidePlugin({ React: 'react', Reflect: 'core-js/es6/reflect' }),
     new DefinePlugin({ _CLIENT_CONFIG_FROM_SERVER: JSON.stringify(clientConfigFromServer) }),
   ],
 

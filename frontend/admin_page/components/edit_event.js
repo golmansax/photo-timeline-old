@@ -41,6 +41,7 @@ export default class AdminEditEvent extends Component {
     const newEvent = Object.assign({}, this.state.event, data);
     this.setState({ event: newEvent });
     alert('Successfully edited event!');
+    window.location.reload();
   }
 }
 

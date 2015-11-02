@@ -73,9 +73,17 @@ export default class EventForm extends Component {
     // Don't allow page navigation
     event.preventDefault();
 
-    this.props.onEdit(Object.assign(pick(this.state, EDITABLE_ATTRS), {
+    const editedAttrs = Object.assign(pick(this.state, EDITABLE_ATTRS), {
       slug: this._getSlug(),
-    }));
+    });
+
+    Object.keys(editedAttrs).forEach((attr) => {
+      if (editedAttrs[attr] === this.props.event[attr]) {
+        Reflect.deleteProperty(editedAttrs, attr);
+      }
+    });
+
+    this.props.onEdit(editedAttrs);
   }
 
   _getSlug() {
