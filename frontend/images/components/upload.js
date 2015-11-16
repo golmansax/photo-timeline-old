@@ -39,7 +39,7 @@ export default class ImageUpload extends Component {
 
   _updateState(event) {
     const file = event.target.files[0];
-    if (file.name.indexOf('.jpg') < 0) {
+    if (!file.name.match(/\.jpe?g/i)) {
       alert('Must choose a jpg file');
       event.preventDefault();
       return;

@@ -2,6 +2,7 @@ import { render } from 'react-dom';
 import { HomePageContent } from './components';
 import { UserLoginForm } from '../users/components';
 import { isLoggedIn } from '_client/firebase_ref';
+import { makeClientEntry } from '_frontend/utils';
 
 const loggedInRoutes = (
   <HomePageContent />
@@ -12,6 +13,6 @@ const loggedOutRoutes = (
 );
 
 render(
-  isLoggedIn() ? loggedInRoutes : loggedOutRoutes,
+  makeClientEntry(isLoggedIn() ? loggedInRoutes : loggedOutRoutes),
   document.getElementById('content')
 );

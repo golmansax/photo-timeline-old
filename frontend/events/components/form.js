@@ -69,7 +69,7 @@ export default class EventForm extends Component {
     this.props.onEdit({ imageUrl });
   }
 
-  _validateAndSubmit() {
+  _validateAndSubmit(event) {
     // Don't allow page navigation
     event.preventDefault();
 

@@ -7,8 +7,13 @@ import lost from 'lost';
 import postcssClearfix from 'postcss-clearfix';
 import { DefinePlugin, ProvidePlugin } from 'webpack';
 import * as clientConfigFromServer from '_client/config.from_server';
+import fs from 'fs';
+
+const babelConfig = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', '.babelrc')));
 
 module.exports = {
+  devtool: 'eval-source-map',
+
   entry: {
     admin_page: './frontend/admin_page/client_entry.js',
     home_page: './frontend/home_page/client_entry.js',
@@ -26,10 +31,9 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
-        query: {
-          // optional: ['runtime'],
-          plugins: 'babel-plugin-object-assign',
-        },
+        query: Object.assign(babelConfig, {
+          plugins: ['transform-object-assign'],
+        }),
       },
       {
         test: /\.css/,

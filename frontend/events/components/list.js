@@ -29,9 +29,11 @@ export default class EventList extends Component {
   }
 
   _removeEvent(event) {
-    childRef(`events/${event.key}`).remove(() => {
-      alert('Successfully removed!');
-    });
+    if (confirm(`Are you sure you want to remove '${event.title}'?`)) {
+      childRef(`events/${event.key}`).remove(() => {
+        alert('Successfully removed!');
+      });
+    }
   }
 }
 
