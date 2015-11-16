@@ -6,9 +6,6 @@ install:
 script:
 - travis-lint .travis.yml
 - make eslint
-cache:
-  directories:
-  - node_modules
 deploy:
   provider: heroku
   strategy: git
