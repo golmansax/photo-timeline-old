@@ -3,7 +3,7 @@ import { bindToState, removeBinding } from '_client/re_base';
 import { EventGrid } from '../../events/components';
 import { UserLogoutButton } from '../../users/components';
 
-export default class HomePageContent extends Component {
+class HomePageContent extends Component {
   constructor(props) {
     super(props);
     this.state = { events: null };
@@ -33,3 +33,5 @@ export default class HomePageContent extends Component {
     );
   }
 }
+
+export default HomePageContent;

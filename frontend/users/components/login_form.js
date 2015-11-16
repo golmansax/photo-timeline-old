@@ -1,7 +1,7 @@
 import { Component, PropTypes } from 'react';
 import { authWithPassword } from '_client/firebase_ref';
 
-export default class UserLoginForm extends Component {
+class UserLoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = { email: '', password: '' };
@@ -72,3 +72,5 @@ export default class UserLoginForm extends Component {
 UserLoginForm.propTypes = {
   onLogin: PropTypes.func.isRequired,
 };
+
+export default UserLoginForm;
