@@ -49,6 +49,7 @@
     "firebase": "*",
     "formidable": "*",
     "imports-loader": "*",
+    "history": "*",
     "lost": "*",
     "moment": "*",
     "postcss-clearfix": "*",
