@@ -1,17 +1,14 @@
-import { Component } from 'react';
-import { children } from '_frontend/prop_types';
+import { childrenPropType } from '_frontend/prop_types';
 import { UserLogoutButton } from '../../users/components';
 
-export default class AdminPageContent extends Component {
-  render() {
-    return (
-      <div>
-        Logged in!
-        <UserLogoutButton />
-        {this.props.children}
-      </div>
-    );
-  }
-}
+const AdminPageContent = ({ children }) => (
+  <div>
+    Logged in!
+    <UserLogoutButton />
+    {children}
+  </div>
+);
 
-AdminPageContent.propTypes = { children: children.isRequired };
+AdminPageContent.propTypes = { children: childrenPropType.isRequired };
+
+export default AdminPageContent;

@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import { logOut } from '_client/firebase_ref';
 
 function logOutAndReload() {

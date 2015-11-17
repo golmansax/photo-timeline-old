@@ -10,7 +10,6 @@ import * as clientConfigFromServer from '_client/config.from_server';
 import fs from 'fs';
 
 const babelConfig = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', '.babelrc')));
-console.log(babelConfig);
 
 module.exports = {
   devtool: 'eval-source-map',

@@ -2,7 +2,7 @@ import { Component, PropTypes } from 'react';
 import { bindAll } from '_utils';
 import { post } from '_client/http';
 
-export default class ImageUpload extends Component {
+class ImageUpload extends Component {
   constructor(props) {
     super(props);
     this.state = { file: null };
@@ -53,3 +53,5 @@ ImageUpload.propTypes = {
   imageId: PropTypes.string.isRequired,
   onUpload: PropTypes.func,
 };
+
+export default ImageUpload;

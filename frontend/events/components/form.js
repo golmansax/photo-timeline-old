@@ -5,7 +5,7 @@ import { ImageUpload } from '../../images/components';
 
 const EDITABLE_ATTRS = ['title', 'date', 'location', 'imageUrl'];
 
-export default class EventForm extends Component {
+class EventForm extends Component {
   constructor(props) {
     super(props);
 
@@ -95,3 +95,5 @@ EventForm.propTypes = {
   event: PropTypes.object.isRequired,
   onEdit: PropTypes.func,
 };
+
+export default EventForm;

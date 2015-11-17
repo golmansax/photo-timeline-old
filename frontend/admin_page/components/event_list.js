@@ -3,7 +3,7 @@ import { bindToState, removeBinding } from '_client/re_base';
 import { A } from '_frontend/components';
 import { EventList } from '../../events/components';
 
-export default class AdminEventList extends Component {
+class AdminEventList extends Component {
   constructor(props) {
     super(props);
     this.state = { events: null };
@@ -32,3 +32,5 @@ export default class AdminEventList extends Component {
     );
   }
 }
+
+export default AdminEventList;

@@ -4,7 +4,7 @@ import { syncState, removeBinding } from '_client/re_base';
 import { bindAll } from '_utils';
 import { EventForm } from '../../events/components';
 
-export default class AdminEditEvent extends Component {
+class AdminEditEvent extends Component {
   constructor(props) {
     super(props);
     this.state = { event: null };
@@ -50,3 +50,5 @@ AdminEditEvent.propTypes = {
     id: PropTypes.string,
   }),
 };
+
+export default AdminEditEvent;
