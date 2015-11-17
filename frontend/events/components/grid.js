@@ -1,4 +1,4 @@
-import { Component, PropTypes } from 'react';
+import { PropTypes } from 'react';
 import moment from 'moment';
 import EventImage from './image';
 import styles from './grid.css';

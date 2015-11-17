@@ -1,6 +1,8 @@
 {
   "extends": "golmansax",
+  "parser": "babel-eslint",
   "rules": {
-    "react/react-in-jsx-scope": 0
+    "react/react-in-jsx-scope": 0,
+    "react/no-multi-comp": [2, { "ignoreStateless": true }]
   }
 }

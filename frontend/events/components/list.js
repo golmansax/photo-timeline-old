@@ -1,4 +1,4 @@
-import { Component, PropTypes } from 'react';
+import { PropTypes } from 'react';
 import moment from 'moment';
 import { A } from '_frontend/components';
 import { childRef } from '_client/firebase_ref';
