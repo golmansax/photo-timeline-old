@@ -6,7 +6,7 @@ import { bindAll } from '_utils';
 import { post } from '_client/re_base';
 import { EventForm } from '../../events/components';
 
-export default class AdminNewEvent extends Component {
+class AdminNewEvent extends Component {
   constructor(props) {
     super(props);
     bindAll(this, ['_renderForm', '_createEvent']);
@@ -37,3 +37,5 @@ export default class AdminNewEvent extends Component {
 }
 
 reactMixin.onClass(AdminNewEvent, History);
+
+export default AdminNewEvent;
