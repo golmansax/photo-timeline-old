@@ -1,2 +1,4 @@
 import HomePageContent from './content';
-export { HomePageContent };
+import HomeMainDisplay from './main_display';
+import HomeYearDisplay from './year_display';
+export { HomePageContent, HomeMainDisplay, HomeYearDisplay };
