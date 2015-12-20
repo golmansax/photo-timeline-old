@@ -1,2 +1,1 @@
-import ImageUpload from './upload';
-export { ImageUpload };
+export ImageUpload from './upload';
