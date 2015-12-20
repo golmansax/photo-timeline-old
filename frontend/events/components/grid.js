@@ -9,7 +9,7 @@ const renderEvent = (event) => (
     <div><A route={`/events/${event.key}`}>{event.title}</A></div>
     <div>{moment(event.date).format('MMMM Do YYYY')}</div>
     <div>{event.location}</div>
-    <EventImage {...{event}} className={styles.image} />
+    <EventImage event={event} className={styles.image} />
   </div>
 );
 
