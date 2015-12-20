@@ -1,4 +1,5 @@
 import EventList from './list';
 import EventForm from './form';
 import EventGrid from './grid';
-export { EventList, EventGrid, EventForm };
+import EventImage from './image';
+export { EventList, EventGrid, EventForm, EventImage };

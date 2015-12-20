@@ -5,7 +5,7 @@ const EventImage = ({ className, event }) => (
 );
 
 EventImage.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   event: PropTypes.object.isRequired,
 };
 

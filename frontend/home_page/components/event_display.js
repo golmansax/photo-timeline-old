@@ -1,6 +1,7 @@
 import { PropTypes, Component } from 'react';
 import { syncState, removeBinding } from '_client/re_base';
-import { EventGrid } from '../../events/components';
+import { EventImage } from '../../events/components';
+import moment from 'moment';
 import { bindAll } from '_utils';
 
 class HomeEventDisplay extends Component {
@@ -27,8 +28,16 @@ class HomeEventDisplay extends Component {
 
   render() {
     if (this.state.event === null) { return <div>Loading...</div>; }
+    const { event } = this.state;
 
-    return <div>Hello</div>;
+    return (
+      <div>
+        <div>{event.title}</div>
+        <div>{moment(event.date).format('MMMM Do YYYY')}</div>
+        <div>{event.location}</div>
+        <EventImage event={event} />
+      </div>
+    );
   }
 
   _bindToEvent(id) {
