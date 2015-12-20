@@ -1,15 +1,13 @@
-import { Component, PropTypes } from 'react';
-import { A } from '_frontend/components';
+import { PropTypes, Component } from 'react';
 import { syncState, removeBinding } from '_client/re_base';
+import { EventGrid } from '../../events/components';
 import { bindAll } from '_utils';
-import { EventForm } from '../../events/components';
 
-class AdminEditEvent extends Component {
+class HomeEventDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = { event: null };
-
-    bindAll(this, ['_renderForm', '_updateEvent', '_bindToEvent']);
+    bindAll(this, ['_bindToEvent']);
   }
 
   componentWillMount() {
@@ -28,24 +26,9 @@ class AdminEditEvent extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <A route='/'>Back to admin home</A>
-        {this._renderForm()}
-      </div>
-    );
-  }
-
-  _renderForm() {
     if (this.state.event === null) { return <div>Loading...</div>; }
-    return <EventForm event={this.state.event} onEdit={this._updateEvent} />;
-  }
 
-  _updateEvent(data) {
-    const newEvent = Object.assign({}, this.state.event, data);
-    this.setState({ event: newEvent });
-    alert('Successfully edited event!');
-    window.location.reload();
+    return <div>Hello</div>;
   }
 
   _bindToEvent(id) {
@@ -56,10 +39,10 @@ class AdminEditEvent extends Component {
   }
 }
 
-AdminEditEvent.propTypes = {
+HomeEventDisplay.propTypes = {
   params: PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.string.isRequired,
   }),
 };
 
-export default AdminEditEvent;
+export default HomeEventDisplay;

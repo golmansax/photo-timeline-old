@@ -4,7 +4,7 @@ import { A } from '_frontend/components';
 import { listenTo, removeBinding } from '_client/re_base';
 
 const renderYear = (year) => (
-  <A key={year} route={`/year/${year}`}>{year}</A>
+  <A key={year} route={`/years/${year}`}>{year}</A>
 );
 
 class HomeYearLinks extends Component {
