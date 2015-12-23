@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import { isProduction } from '../server/config';
+import { isDevelopment, isProduction } from '../server/config';
 import path from 'path';
 import lost from 'lost';
 import postcssClearfix from 'postcss-clearfix';
@@ -12,7 +12,7 @@ import fs from 'fs';
 const babelConfig = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', '.babelrc')));
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: isDevelopment() ? 'eval-source-map' : null,
 
   entry: {
     admin_page: './frontend/admin_page/client_entry.js',
