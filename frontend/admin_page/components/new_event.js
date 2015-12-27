@@ -3,8 +3,8 @@ import reactMixin from 'react-mixin';
 import { History } from 'react-router';
 import { A } from '_frontend/components';
 import { bindAll } from '_utils';
-import { post } from '_client/re_base';
 import { EventForm } from '../../events/components';
+import { saveEvent } from '../../events/actions';
 
 class AdminNewEvent extends Component {
   constructor(props) {
@@ -26,12 +26,9 @@ class AdminNewEvent extends Component {
   }
 
   _createEvent(data) {
-    post(`events/${data.slug}`, {
-      data,
-      then: () => {
-        alert('Successfully added event!');
-        this.history.pushState(null, `/events/${data.slug}`);
-      },
+    saveEvent(data.slug, data).then(() => {
+      alert('Successfully added event!');
+      this.history.pushState(null, `/events/${data.slug}`);
     });
   }
 }
