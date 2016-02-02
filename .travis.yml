@@ -1,7 +1,8 @@
 sudo: false
 language: node_js
 install:
-- NODE_ENV=development npm install
+- npm install
+- NODE_ENV=development npm install --dev-only
 script:
 - travis-lint .travis.yml
 - make eslint
