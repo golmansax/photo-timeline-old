@@ -3,6 +3,9 @@ language: node_js
 script:
 - travis-lint .travis.yml
 - make eslint
+cache:
+  directories:
+  - node_modules
 env:
 - NODE_ENV=production
 deploy:
