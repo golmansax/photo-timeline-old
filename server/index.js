@@ -52,7 +52,10 @@ server.use((err, req, res, next) => {
 });
 
 server.use((err, req, res, next) => {
-  if (res.headersSent) { return next(err); }
+  if (res.headersSent) {
+    next(err);
+    return;
+  }
 
   if (isDevelopment()) { Reflect.deleteProperty(err, 'stack'); }
   res.status(err.statusCode || 500).json({ error: err.message });

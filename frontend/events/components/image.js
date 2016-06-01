@@ -1,7 +1,7 @@
 import { PropTypes } from 'react';
 
 const EventImage = ({ className, event }) => (
-  <img className={className} src={event.imageUrl} />
+  <img role='presentation' className={className} src={event.imageUrl} />
 );
 
 EventImage.propTypes = {

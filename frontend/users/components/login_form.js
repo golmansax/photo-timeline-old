@@ -5,7 +5,7 @@ class UserLoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = { email: '', password: '' };
-    ['_validateAndSubmit'].forEach((key) => this[key] = this[key].bind(this));
+    ['_validateAndSubmit'].forEach((key) => (this[key] = this[key].bind(this)));
   }
 
   render() {
@@ -66,6 +66,8 @@ class UserLoginForm extends Component {
     } else if (!this.state.password) {
       return 'Please enter a password';
     }
+
+    return null;
   }
 }
 
