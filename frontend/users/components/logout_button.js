@@ -1,10 +1,10 @@
-import { alert } from '_frontend/actions';
+import { alert, reloadPage } from '_frontend/actions';
 import { logOut } from '_client/firebase_ref';
 
 function logOutAndReload() {
   logOut();
   alert('Successfully logged out');
-  window.location.reload();
+  reloadPage();
 }
 
 const UserLogoutButton = () => (

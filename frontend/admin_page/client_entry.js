@@ -8,6 +8,7 @@ import {
 import { UserLoginForm } from '../users/components';
 import { Router, IndexRoute, Route } from 'react-router';
 import { isLoggedIn } from '_client/firebase_ref';
+import { reloadPage } from '_frontend/actions';
 import { makeClientEntry } from '_frontend/utils';
 
 const loggedInRoutes = (
@@ -20,9 +21,7 @@ const loggedInRoutes = (
   </Router>
 );
 
-const loggedOutRoutes = (
-  <UserLoginForm onLogin={() => window.location.reload()} />
-);
+const loggedOutRoutes = <UserLoginForm onLogin={reloadPage} />;
 
 render(
   makeClientEntry(isLoggedIn() ? loggedInRoutes : loggedOutRoutes),
