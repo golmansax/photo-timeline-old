@@ -1,5 +1,6 @@
 import { Component, PropTypes } from 'react';
 import { bindAll } from '_utils';
+import { alert } from '_frontend/actions';
 import { post } from '_client/http';
 
 class ImageUpload extends Component {

@@ -2,6 +2,7 @@ import { Component, PropTypes } from 'react';
 import reactMixin from 'react-mixin';
 import { History } from 'react-router';
 import { A } from '_frontend/components';
+import { alert } from '_frontend/actions';
 import { bindToState, removeBinding } from '_client/re_base';
 import { bindAll } from '_utils';
 import { EventForm } from '../../events/components';

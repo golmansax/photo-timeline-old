@@ -1,4 +1,5 @@
 import { Component, PropTypes } from 'react';
+import { alert } from '_frontend/actions';
 import { authWithPassword } from '_client/firebase_ref';
 
 class UserLoginForm extends Component {

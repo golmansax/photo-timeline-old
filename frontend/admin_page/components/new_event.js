@@ -2,6 +2,7 @@ import { Component } from 'react';
 import reactMixin from 'react-mixin';
 import { History } from 'react-router';
 import { A } from '_frontend/components';
+import { alert } from '_frontend/actions';
 import { bindAll } from '_utils';
 import { EventForm } from '../../events/components';
 import { saveEvent } from '../../events/actions';

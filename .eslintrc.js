@@ -4,6 +4,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       webpack: { config: 'webpack/config.client.js' },
+      node: { paths: [`${__dirname}/lib`] },
     },
   },
 
@@ -11,7 +12,6 @@ module.exports = {
     'global-require': [1],
     'react/jsx-no-bind': [0],
     'import/no-unresolved': [1],
-    'no-undef': [1],
     'no-underscore-dangle': [2, {
       allowAfterThis: true,
     }],

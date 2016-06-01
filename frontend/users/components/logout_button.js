@@ -1,3 +1,4 @@
+import { alert } from '_frontend/actions';
 import { logOut } from '_client/firebase_ref';
 
 function logOutAndReload() {

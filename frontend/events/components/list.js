@@ -1,5 +1,6 @@
 import { PropTypes } from 'react';
 import moment from 'moment';
+import { confirm, alert } from '_frontend/actions';
 import { A } from '_frontend/components';
 import { removeEvent } from '../actions';
 
