@@ -13,7 +13,7 @@ class HomeMainDisplay extends Component {
       context: this,
       state: 'events',
       asArray: true,
-      queries: { orderByChild: 'date' },
+      queries: { orderByChild: 'date', limitToLast: 1 },
     });
   }
 
