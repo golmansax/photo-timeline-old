@@ -31,6 +31,7 @@ class ImageUpload extends Component {
 
     alert('Starting upload...');
 
+    /* globals FormData */
     const formData = new FormData();
     formData.append('image', this.state.file);
     formData.append('imageId', this.props.imageId);
