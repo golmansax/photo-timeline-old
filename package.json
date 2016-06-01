@@ -22,6 +22,7 @@
     "eslint": "*",
     "eslint-config-airbnb": "*",
     "eslint-config-golmansax": "*",
+    "eslint-plugin-import": "*",
     "eslint-plugin-react": "*",
     "http-proxy": "*",
     "travis-lint": "*",
