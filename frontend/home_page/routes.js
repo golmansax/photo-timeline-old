@@ -1,4 +1,4 @@
-import { Router, IndexRoute, Route } from 'react-router';
+import { Router, IndexRoute, Route, hashHistory } from 'react-router';
 import {
   HomePageContent,
   HomeMainDisplay,
@@ -7,7 +7,7 @@ import {
 } from './components';
 
 const homePageRoutes = (
-  <Router>
+  <Router history={hashHistory}>
     <Route path='/' component={HomePageContent}>
       <IndexRoute component={HomeMainDisplay} />
       <Route path='years/:year' component={HomeYearDisplay} />

@@ -6,13 +6,13 @@ import {
   AdminNewEvent,
 } from './components';
 import { UserLoginForm } from '../users/components';
-import { Router, IndexRoute, Route } from 'react-router';
+import { hashHistory, Router, IndexRoute, Route } from 'react-router';
 import { isLoggedIn } from '_client/firebase_ref';
 import { reloadPage } from '_frontend/actions';
 import { makeClientEntry, getElementById } from '_frontend/utils';
 
 const loggedInRoutes = (
-  <Router>
+  <Router history={hashHistory}>
     <Route path='/' component={AdminPageContent}>
       <IndexRoute component={AdminEventList} />
       <Route path='events/:id' component={AdminEditEvent} />
