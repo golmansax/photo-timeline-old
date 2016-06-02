@@ -24,7 +24,7 @@ if (isDevelopment()) {
   );
 }
 
-server.use('static', express.static(path.resolve(__dirname, '..', 'public')));
+server.use('/static', express.static(path.resolve(__dirname, '..', 'public')));
 server.use(bodyParser.urlencoded({ extended: false, limit: '4MB' }));
 
 server.get('/', (req, res) => {

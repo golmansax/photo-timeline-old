@@ -1,3 +1,4 @@
 vendor/
 node_modules/
 webpack/build/
+public/

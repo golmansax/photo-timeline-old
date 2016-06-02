@@ -37,7 +37,7 @@ class ImageUpload extends Component {
     formData.append('imageId', this.props.imageId);
 
     post({ url: '/create-image', formData }).then(({ data }) => {
-      this.props.onUpload(data.url);
+      this.props.onUpload(data.secure_url);
     });
   }
 

@@ -1,12 +1,13 @@
 import { Component } from 'react';
+import { PhotoSwipe } from 'react-photoswipe';
 import { bindToState, removeBinding } from '_client/re_base';
 import { EventGrid } from '../../events/components';
 
 class HomeMainDisplay extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { events: null };
-  }
+  state = {
+    events: null,
+    isOpen: false,
+  };
 
   componentWillMount() {
     this._binding = bindToState('events', {
@@ -24,10 +25,26 @@ class HomeMainDisplay extends Component {
   render() {
     if (this.state.events === null) { return <div>Loading...</div>; }
 
+    const images = this.state.events.map((event) => ({
+      src: event.imageUrl,
+      title: event.title,
+      w: 1200,
+      h: 900,
+    }));
     return (
-      <EventGrid events={this.state.events} />
+      <div>
+        <EventGrid events={this.state.events} />
+        <button onClick={this._onOpen}>Open</button>
+        <PhotoSwipe
+          isOpen={this.state.isOpen}
+          items={images}
+        />
+      </div>
     );
   }
+
+  _onOpen = () => this.setState({ isOpen: true });
+  _onClose = () => this.setState({ isOpen: false });
 }
 
 export default HomeMainDisplay;

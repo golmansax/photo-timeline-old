@@ -60,7 +60,7 @@
     "postcss-loader": "*",
     "react": "*",
     "react-dom": "*",
-    "react-mixin": "*",
+    "react-photoswipe": "*",
     "react-router": "*",
     "re-base": "*",
     "style-loader": "*",

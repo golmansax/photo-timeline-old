@@ -1,6 +1,4 @@
 import { Component, PropTypes } from 'react';
-import reactMixin from 'react-mixin';
-import { History } from 'react-router';
 import { A } from '_frontend/components';
 import { alert } from '_frontend/actions';
 import { bindToState, removeBinding } from '_client/re_base';
@@ -9,6 +7,10 @@ import { EventForm } from '../../events/components';
 import { saveEvent, removeEvent } from '../../events/actions';
 
 class AdminEditEvent extends Component {
+  static contextTypes = {
+    router: PropTypes.object.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.state = { event: null };
@@ -47,7 +49,7 @@ class AdminEditEvent extends Component {
 
   _alertSuccess = (id) => {
     alert('Successfully edited event!');
-    this.history.pushState(null, `/events/${id}`);
+    this.context.router.push(`/events/${id}`);
   };
 
   _updateEvent(data) {
@@ -84,7 +86,5 @@ AdminEditEvent.propTypes = {
     id: PropTypes.string,
   }),
 };
-
-reactMixin.onClass(AdminEditEvent, History);
 
 export default AdminEditEvent;

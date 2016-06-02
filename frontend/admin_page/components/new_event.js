@@ -1,6 +1,4 @@
-import { Component } from 'react';
-import reactMixin from 'react-mixin';
-import { History } from 'react-router';
+import { PropTypes, Component } from 'react';
 import { A } from '_frontend/components';
 import { alert } from '_frontend/actions';
 import { bindAll } from '_utils';
@@ -8,6 +6,10 @@ import { EventForm } from '../../events/components';
 import { saveEvent } from '../../events/actions';
 
 class AdminNewEvent extends Component {
+  static contextTypes = {
+    router: PropTypes.object.isRequired,
+  };
+
   constructor(props) {
     super(props);
     bindAll(this, ['_renderForm', '_createEvent']);
@@ -29,11 +31,9 @@ class AdminNewEvent extends Component {
   _createEvent(data) {
     saveEvent(data.slug, data).then(() => {
       alert('Successfully added event!');
-      this.history.pushState(null, `/events/${data.slug}`);
+      this.context.router.push(`/events/${data.slug}`);
     });
   }
 }
-
-reactMixin.onClass(AdminNewEvent, History);
 
 export default AdminNewEvent;
