@@ -17,6 +17,11 @@ const EventGridItem = ({ event, onClick }) => (
   </div>
 );
 
+EventGridItem.propTypes = {
+  event: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
 class EventGrid extends Component {
   static propTypes = {
     events: PropTypes.array.isRequired,
