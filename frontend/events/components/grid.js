@@ -40,6 +40,7 @@ class EventGrid extends Component {
       </div>
       <PhotoSwipe
         isOpen={this.state.photoswipeOpen}
+        onClose={this._closePhotoswipe}
         items={this.props.events.map((event) => ({
           src: event.imageUrl,
           title: renderToStaticMarkup(
@@ -62,6 +63,8 @@ class EventGrid extends Component {
     event.preventDefault();
     this.setState({ photoswipeOpen: true, selectedIndex });
   };
+
+  _closePhotoswipe = () => this.setState({ photoswipeOpen: false });
 }
 
 export default EventGrid;
