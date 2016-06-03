@@ -50,6 +50,9 @@ class EventGrid extends Component {
         }))}
         options={{
           index: this.state.selectedIndex,
+
+          // Turn it off until we get it to work with React Router
+          history: false,
         }}
       />
     </div>
