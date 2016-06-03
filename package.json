@@ -8,8 +8,8 @@
     "postinstall": "./scripts/npm_postinstall.sh"
   },
   "engines": {
-    "node": "~6.2.0",
-    "npm": "3.8.x"
+    "node": "6.2.x",
+    "npm": "3.9.x"
   },
   "repository": {
     "type": "git",
