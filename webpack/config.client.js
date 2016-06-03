@@ -12,10 +12,8 @@ import { DefinePlugin, ProvidePlugin } from 'webpack';
 import * as clientConfigFromServer from '_client/config.from_server';
 import fs from 'fs';
 
-const babelConfig = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', '.babelrc')));
-
 module.exports = {
-  devtool: isDevelopment() ? 'eval-source-map' : null,
+  devtool: isDevelopment() ? '#cheap-module-eval-source-map' : null,
 
   entry: {
     admin_page: './frontend/admin_page/client_entry.js',
@@ -34,9 +32,9 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
-        query: Object.assign(babelConfig, {
+        query: {
           plugins: ['transform-object-assign'],
-        }),
+        },
       },
       {
         test: /\.css/,

@@ -1,7 +1,7 @@
 .PHONY: eslint watch start-dev start-prod shrinkwrap
 
 build:
-	./node_modules/.bin/webpack --config webpack/entry.js --progress --colors -p
+	./node_modules/.bin/webpack --config webpack/entry.js --colors -p
 
 eslint:
 	./node_modules/.bin/eslint .
