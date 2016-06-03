@@ -2,6 +2,7 @@
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { isDevelopment, isProduction } from '../server/config';
+import ManifestPlugin from 'webpack-manifest-plugin';
 import path from 'path';
 import lost from 'lost';
 import clearfix from 'postcss-clearfix';
@@ -10,6 +11,10 @@ import customMedia from 'postcss-custom-media';
 import atImport from 'postcss-import';
 import { DefinePlugin, ProvidePlugin } from 'webpack';
 import * as clientConfigFromServer from '_client/config.from_server';
+
+const CSS_CLASS_NAME_PATTERN = isDevelopment() ?
+  '[path][name]__[local]___[hash:base64:5]' :
+  '[hash:base64:16]';
 
 module.exports = {
   devtool: isDevelopment() ? '#cheap-module-eval-source-map' : null,
@@ -22,7 +27,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/assets/',
-    filename: '[name].client_entry.js',
+    filename: `[name]${isProduction() ? '.[chunkhash]' : ''}.js`,
   },
 
   module: {
@@ -39,7 +44,7 @@ module.exports = {
         test: /\.css/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css-loader?modules&localIdentName=[path][name]__[local]___[hash:base64:5]!postcss-loader'
+          `css-loader?modules&localIdentName=${CSS_CLASS_NAME_PATTERN}!postcss-loader`
         ),
       },
       {
@@ -72,9 +77,10 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].client.css', { allChunks: true }),
+    new ExtractTextPlugin(`[name]${isProduction() ? '.[chunkhash]' : ''}.css`, { allChunks: true }),
     new ProvidePlugin({ React: 'react', Reflect: 'core-js/es6/reflect' }),
     new DefinePlugin({ _CLIENT_CONFIG_FROM_SERVER: JSON.stringify(clientConfigFromServer) }),
+    new ManifestPlugin(),
   ],
 
   resolve: {

@@ -74,6 +74,7 @@
     "superagent": "*",
     "transform-loader": "*",
     "url-loader": "*",
-    "webpack": "*"
+    "webpack": "*",
+    "webpack-manifest-plugin": "*"
   }
 }
