@@ -10,7 +10,6 @@ import customMedia from 'postcss-custom-media';
 import atImport from 'postcss-import';
 import { DefinePlugin, ProvidePlugin } from 'webpack';
 import * as clientConfigFromServer from '_client/config.from_server';
-import fs from 'fs';
 
 module.exports = {
   devtool: isDevelopment() ? '#cheap-module-eval-source-map' : null,
