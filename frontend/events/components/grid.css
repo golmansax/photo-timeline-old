@@ -1,9 +1,19 @@
+@import '_frontend/styles/breakpoints';
+
 .grid {
   clear: fix;
 }
 
-.gridItem {
-  lost-column: 1/3;
+@media (--desktop) {
+  .gridItem {
+    lost-column: 1/3;
+  }
+}
+
+@media (--tablet) {
+  .gridItem {
+    lost-column: 1/2;
+  }
 }
 
 .image {

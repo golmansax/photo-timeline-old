@@ -4,7 +4,10 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { isDevelopment, isProduction } from '../server/config';
 import path from 'path';
 import lost from 'lost';
-import postcssClearfix from 'postcss-clearfix';
+import clearfix from 'postcss-clearfix';
+import mediaMinmax from 'postcss-media-minmax';
+import customMedia from 'postcss-custom-media';
+import atImport from 'postcss-import';
 import { DefinePlugin, ProvidePlugin } from 'webpack';
 import * as clientConfigFromServer from '_client/config.from_server';
 import fs from 'fs';
@@ -81,5 +84,14 @@ module.exports = {
     root: path.resolve(__dirname, '..', 'lib'),
   },
 
-  postcss: () => [lost, postcssClearfix],
+  postcss: (webpack) => [
+    atImport({
+      addDependencyTo: webpack,
+      path: path.resolve(__dirname, '..', 'lib'),
+    }),
+    customMedia,
+    mediaMinmax,
+    lost,
+    clearfix,
+  ],
 };

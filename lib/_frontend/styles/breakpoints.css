@@ -1,0 +1,11 @@
+:root {
+  --desktopBreakpoint: 1024px;
+  --tabletBreakpoint: 640px;
+}
+
+/* Unfortunately can't use variables in custom media */
+@custom-media --desktop (width >= 1024px);
+@custom-media --mobile (width < 1024px);
+@custom-media --tablet (width >= 640px) and (width < 1024px);
+@custom-media --desktop-and-tablet (width >= 640vr);
+@custom-media --phone (width < 640px);
