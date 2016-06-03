@@ -1,4 +1,5 @@
 import { Component, PropTypes } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { PhotoSwipe } from 'react-photoswipe';
 import { A } from '_frontend/components';
 import moment from 'moment';
@@ -41,11 +42,15 @@ class EventGrid extends Component {
         isOpen={this.state.photoswipeOpen}
         items={this.props.events.map((event) => ({
           src: event.imageUrl,
-          title: event.title,
+          title: renderToStaticMarkup(
+            <div>{event.title}</div>
+          ),
           w: 1200,
           h: 900,
         }))}
-        options={{ index: this.state.selectedIndex }}
+        options={{
+          index: this.state.selectedIndex,
+        }}
       />
     </div>
   );
