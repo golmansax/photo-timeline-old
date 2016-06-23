@@ -1,7 +1,6 @@
 import { cloneElement, PropTypes, Component } from 'react';
 import { bindToState, removeBinding } from '_client/re_base';
 import { UserLogoutButton } from '../../users/components';
-import HomeYearLinks from './year_links';
 import EventList from './event_list';
 import styles from './layout.css';
 
