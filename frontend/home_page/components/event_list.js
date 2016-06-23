@@ -1,14 +1,17 @@
-import { PropTypes, Component } from 'react';
+import { PropTypes } from 'react';
 import moment from 'moment';
 import { groupBy } from '_array_utils';
 import { A } from '_frontend/components';
-import { bindToState, removeBinding } from '_client/re_base';
 
 const Event = ({ event }) => (
   <div>
     <A route={`events/${event.key}`}>{event.title}</A>
   </div>
 );
+
+Event.propTypes = {
+  event: PropTypes.object.isRequired,
+};
 
 const EventList = ({ events }) => {
   const eventsByYear = groupBy(events, (event) => (

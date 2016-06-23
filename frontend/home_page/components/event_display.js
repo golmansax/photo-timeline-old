@@ -1,35 +1,34 @@
-import { PropTypes, Component } from 'react';
+import { PropTypes } from 'react';
 import { EventImage } from '../../events/components';
 import moment from 'moment';
 import styles from './event_display.css';
 import HomePageLayout from './layout';
 
-class HomeEventDisplay extends Component {
-  static propTypes = {
-    events: PropTypes.array,
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }),
-  };
+const HomeEventDisplay = (props) => {
+  const { events, params } = props;
+  const myEvent = events.find((event) => (
+    event.key === params.id
+  ));
 
-  render() {
-    const event = this.props.events.find((event) => (
-      event.key === this.props.params.id
-    ));
-
-    return (
-      <HomePageLayout {...this.props} mobileContentLayout='modal'>
-        <div className={styles.parent}>
-          <div className={styles.info}>
-            <div>{event.title}</div>
-            <div>{moment(event.date).format('MMMM Do YYYY')}</div>
-            <div>{event.location}</div>
-          </div>
-          <EventImage event={event} className={styles.image} />
+  return (
+    <HomePageLayout {...props} mobileContentLayout='modal'>
+      <div className={styles.parent}>
+        <div className={styles.info}>
+          <div>{myEvent.title}</div>
+          <div>{moment(myEvent.date).format('MMMM Do YYYY')}</div>
+          <div>{myEvent.location}</div>
         </div>
-      </HomePageLayout>
-    );
-  }
-}
+        <EventImage event={myEvent} className={styles.image} />
+      </div>
+    </HomePageLayout>
+  );
+};
+
+HomeEventDisplay.propTypes = {
+  events: PropTypes.array,
+  params: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }),
+};
 
 export default HomeEventDisplay;
