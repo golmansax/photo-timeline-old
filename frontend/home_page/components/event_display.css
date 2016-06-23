@@ -1,0 +1,9 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.image {
+  flex: 1;
+}

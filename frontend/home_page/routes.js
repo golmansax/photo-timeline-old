@@ -1,6 +1,6 @@
 import { Router, IndexRoute, Route, hashHistory } from 'react-router';
 import {
-  HomePageContent,
+  HomePageLayout,
   HomeMainDisplay,
   HomeYearDisplay,
   HomeEventDisplay,
@@ -8,7 +8,7 @@ import {
 
 const homePageRoutes = (
   <Router history={hashHistory}>
-    <Route path='/' component={HomePageContent}>
+    <Route path='/' component={HomePageLayout}>
       <IndexRoute component={HomeMainDisplay} />
       <Route path='years/:year' component={HomeYearDisplay} />
       <Route path='events/:id' component={HomeEventDisplay} />

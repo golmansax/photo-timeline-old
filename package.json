@@ -23,6 +23,7 @@
   "homepage": "https://github.com/golmansax/photo-timeline",
   "devDependencies": {
     "babel-eslint": "*",
+    "babel-plugin-typecheck": "*",
     "eslint": "*",
     "eslint-config-airbnb": "*",
     "eslint-config-golmansax": "*",

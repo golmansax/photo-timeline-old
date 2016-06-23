@@ -1,30 +1,19 @@
-import { Component } from 'react';
-import { bindToState, removeBinding } from '_client/re_base';
-import { EventGrid } from '../../events/components';
+import { PropTypes, Component } from 'react';
 
 class HomeMainDisplay extends Component {
-  state = {
-    events: null,
+  static propTypes = {
+    events: PropTypes.array,
   };
 
-  componentWillMount() {
-    this._binding = bindToState('events', {
-      context: this,
-      state: 'events',
-      asArray: true,
-      queries: { orderByChild: 'date', limitToLast: 1 },
-    });
-  }
+  static contextTypes = {
+    router: PropTypes.object.isRequired,
+  };
 
-  componentWillUnmount() {
-    removeBinding(this._binding);
-  }
+  componentWillMount = () => {
+    this.context.router.push(`/events/${this.props.events[0].key}`);
+  };
 
-  render() {
-    if (this.state.events === null) { return <div>Loading...</div>; }
-
-    return <EventGrid events={this.state.events} />;
-  }
+  render = () => null;
 }
 
 export default HomeMainDisplay;

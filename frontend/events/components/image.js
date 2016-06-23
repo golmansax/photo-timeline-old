@@ -1,7 +1,15 @@
 import { PropTypes } from 'react';
+import classNames from 'classnames';
+import styles from './image.css';
 
 const EventImage = ({ className, event }) => (
-  <img role='presentation' className={className} src={event.imageUrl} />
+  <div
+    className={classNames({
+      [styles.image]: true,
+      [className]: className,
+    })}
+    style={{ backgroundImage: `url(${event.imageUrl})` }}
+  />
 );
 
 EventImage.propTypes = {
