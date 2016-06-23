@@ -1,3 +1,5 @@
+@import '_frontend/styles/breakpoints';
+
 .parent {
   display: flex;
 }
@@ -6,6 +8,24 @@
   flex: 1;
 }
 
-.rightColumn {
-  flex: 2;
+@media (--desktop-and-tablet) {
+  .rightColumn {
+    flex: 2;
+  }
+}
+
+@media (--phone) {
+  .rightColumn.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    color: rgb(240, 240, 240);
+  }
+
+  .rightColumn.hide {
+    display: none;
+  }
 }

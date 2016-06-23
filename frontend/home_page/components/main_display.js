@@ -1,19 +1,8 @@
-import { PropTypes, Component } from 'react';
+import HomePageLayout from './layout';
 
-class HomeMainDisplay extends Component {
-  static propTypes = {
-    events: PropTypes.array,
-  };
-
-  static contextTypes = {
-    router: PropTypes.object.isRequired,
-  };
-
-  componentWillMount = () => {
-    this.context.router.push(`/events/${this.props.events[0].key}`);
-  };
-
-  render = () => null;
-}
-
+const HomeMainDisplay = (props) => (
+  <HomePageLayout {...props} mobileContentLayout='hide'>
+    <div>Check out my photos!</div>
+  </HomePageLayout>
+);
 export default HomeMainDisplay;
