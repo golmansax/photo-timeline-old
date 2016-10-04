@@ -10,7 +10,7 @@ shrinkwrap:
 	npm shrinkwrap --dev
 
 start-dev:
-	nodemon server/entry.js --watch server
+	./node_modules/.bin/nodemon server/entry.js --watch server
 
 start-prod:
 	node server/entry.js
