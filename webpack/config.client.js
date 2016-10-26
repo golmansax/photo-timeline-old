@@ -9,7 +9,7 @@ import clearfix from 'postcss-clearfix';
 import mediaMinmax from 'postcss-media-minmax';
 import customMedia from 'postcss-custom-media';
 import atImport from 'postcss-import';
-import { DefinePlugin, ProvidePlugin } from 'webpack';
+import { DefinePlugin, ProvidePlugin, ContextReplacementPlugin } from 'webpack';
 import * as clientConfigFromServer from '_client/config.from_server';
 
 const CSS_CLASS_NAME_PATTERN = isDevelopment() ?
@@ -80,6 +80,7 @@ module.exports = {
     new ExtractTextPlugin(`[name]${isProduction() ? '.[chunkhash]' : ''}.css`, { allChunks: true }),
     new ProvidePlugin({ React: 'react', Reflect: 'core-js/es6/reflect' }),
     new DefinePlugin({ _CLIENT_CONFIG_FROM_SERVER: JSON.stringify(clientConfigFromServer) }),
+    new ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
     new ManifestPlugin(),
   ],
 
