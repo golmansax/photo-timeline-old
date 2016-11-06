@@ -7,7 +7,8 @@ eslint:
 	./node_modules/.bin/eslint .
 
 shrinkwrap:
-	npm shrinkwrap --dev
+	./node_modules/.bin/npm-shrinkwrap --dev
+	./node_modules/.bin/prune-shrinkwrap fsevents
 
 start-dev:
 	./node_modules/.bin/nodemon server/entry.js --watch server
